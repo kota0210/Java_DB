@@ -9,13 +9,13 @@ public class InsertStudente2 {
 
 	public static void main(String[] args) {
 		// 
-		String url = "jbdc:mysql";
-		String user = "shop_user";
-		String password = "pass";
+		final String URL = "jdbc:mysql://localhost:3306/pc_shop_db";
+		final String USER = "shop_user";
+		final String PASS = "pass";
 		
 		String sql = "SELECT user_id, user_name, birth_day FROM m_user";
 		
-		try(Connection con = DriverManager.getConnection(url, user, password);
+		try(Connection con = DriverManager.getConnection(URL, USER, PASS);
 				Statement stmt = con.createStatement();
 				ResultSet res = stmt.executeQuery(sql)){
 			System.out.println("\n-------全件表示します。---------");

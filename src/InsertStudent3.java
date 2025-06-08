@@ -6,22 +6,23 @@ import java.sql.Statement;
 public class InsertStudent3 {
 
 	public static void main(String[] args) {
-		String url = "jbdc:mysql";
-		String user = "shop_user";
-		String password = "pass";
+		final String URL = "jdbc:mysql://localhost:3306/pc_shop_db";
+		final String USER = "shop_user";
+		final String PASS = "pass";
 		
 		String sql = "INSERT INTO m_user"
-				+ "(user_id, user_name, emali, birthday)"
+				+ "(user_id, user_name, email, birth_day)"
 				+ "VALUES"
-				+ "('ZU01', 'ZU01名前', emali, '2002-03-04')";
+				+ "('ZU02', 'ZU02名前', email, '2002-03-04')";
 		
-		try(Connection con = DriverManager.getConnection(url, user, password);
+		try(Connection con = DriverManager.getConnection(URL, USER, PASS);
 				Statement stmt = con.createStatement()){
 			int cnt = stmt.executeUpdate(sql);
 			
 			System.out.println("\n" + cnt +"件登録しました。");
 		}catch(SQLException e) {
 			System.out.println("\nエラーが発生しました");
+			e.printStackTrace();
 		}
 
 	}

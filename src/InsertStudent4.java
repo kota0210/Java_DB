@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class InsertStudent {
+public class InsertStudent4 {
 	public static void main(String[] args) {
 		final String URL = "jdbc:mysql://localhost:3306/pc_shop_db";
 		final String USER = "shop_user";
@@ -16,11 +16,7 @@ public class InsertStudent {
 		try {
 			//DBに接続
 			con = DriverManager.getConnection(URL, USER, PASS);
-			//ステートメントを作成
-			stmt = con.createStatement();
-			//SQLを実行
-			int count = stmt.executeUpdate(sql);
-			System.out.println(count + "件更新しました。");
+			System.out.println( "接続しました。");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
